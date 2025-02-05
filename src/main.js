@@ -1,5 +1,5 @@
 // query selector variables go here 👇
-
+// console.log("main.js is running!");
 // we've provided you with some data to work with 👇
 // tip: you can tuck this data out of view with the dropdown found near the line number where the variable is declared 
 var images = [
@@ -102,10 +102,44 @@ var quotes = [
 var savedPosters = [];
 var currentPoster;
 
+let posterImg = document.querySelector('.poster-img')
+let posterTitle = document.querySelector('.poster-title')
+let posterQuote = document.querySelector('.poster-quote')
+let showRandomBtn = document.querySelector('.show-random')
+let showFormBtn = document.querySelector('.show-form')
+let mainPosterSection = document.querySelector('.main-poster')
+let formSection = document.querySelector('.poster-form')
+let takeMeBackBtn = document.querySelector('.show-main')
+let showPostersBtn = document.querySelector('.show-saved')
+let savedPostersSection = document.querySelector('.saved-posters')
+
+
 // event listeners go here 👇
+
+window.addEventListener("load", showRandomPoster) // Here we are loading a newly generated poster every time that we load page
+
+showRandomBtn.addEventListener('click', function () {
+  showRandomPoster()
+});
+
+showFormBtn.addEventListener('click', function () {
+  mainPosterSection.classList.add('hidden'); // Hide the main poster section
+  formSection.classList.remove('hidden'); // Show the form section
+});
+
+takeMeBackBtn.addEventListener('click', function () {
+  formSection.classList.add('hidden')
+  mainPosterSection.classList.remove('hidden')
+})
+
+showPostersBtn.addEventListener('click', function () {
+  mainPosterSection.classList.add('hidden')
+  showPostersBtn.classList.remove('hidden')
+})
 
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
+
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
@@ -116,4 +150,13 @@ function createPoster(imageURL, title, quote) {
     imageURL: imageURL, 
     title: title, 
     quote: quote}
+} 
+
+function showRandomPoster() { // Leaving the function this name for the event listener to communicate to. 
+  posterImg.src = images[getRandomIndex(images)];
+  posterTitle.innerText = titles[getRandomIndex(titles)];
+  posterQuote.innerText = quotes[getRandomIndex(quotes)];
 }
+
+
+
