@@ -112,30 +112,53 @@ let formSection = document.querySelector('.poster-form')
 let takeMeBackBtn = document.querySelector('.show-main')
 let showPostersBtn = document.querySelector('.show-saved')
 let savedPostersSection = document.querySelector('.saved-posters')
+let makePosterBtn = document.querySelector('.make-poster')
+let posterImageURL = document.querySelector('#poster-image-url')
+let motivationalTitle = document.querySelector('#poster-title')
+let motivationalQuote = document.querySelector('#poster-quote')
+let savePostersBtn = document.querySelector('.save-poster')
+let displaySavedPosters = document.querySelector(".saved-posters-grid")
 
 
 // event listeners go here 👇
 
 window.addEventListener("load", showRandomPoster) // Here we are loading a newly generated poster every time that we load page
 
-showRandomBtn.addEventListener('click', function () {
+showRandomBtn.addEventListener('click', function() {
   showRandomPoster()
 });
 
-showFormBtn.addEventListener('click', function () {
+showFormBtn.addEventListener('click', function() {
   mainPosterSection.classList.add('hidden'); // Hide the main poster section
   formSection.classList.remove('hidden'); // Show the form section
 });
 
-takeMeBackBtn.addEventListener('click', function () {
+takeMeBackBtn.addEventListener('click', function() {
   formSection.classList.add('hidden')
   mainPosterSection.classList.remove('hidden')
 })
 
-showPostersBtn.addEventListener('click', function () {
+showPostersBtn.addEventListener('click', function() {
   mainPosterSection.classList.add('hidden')
-  showPostersBtn.classList.remove('hidden')
+  savedPostersSection.classList.remove('hidden')
 })
+
+makePosterBtn.addEventListener('click', function(event) {
+  event.preventDefault()
+  formSection.classList.add('hidden')
+  mainPosterSection.classList.remove('hidden')
+  updatePoster()
+})
+
+savePostersBtn.addEventListener('click', function(event) {
+  event.preventDefault();
+  if (!currentPoster) {
+    updatePoster();
+  }
+  savePoster();
+});
+
+
 
 // functions and event handlers go here 👇
 // (we've provided two to get you started)!
@@ -152,11 +175,34 @@ function createPoster(imageURL, title, quote) {
     quote: quote}
 } 
 
-function showRandomPoster() { // Leaving the function this name for the event listener to communicate to. 
+function showRandomPoster() { 
   posterImg.src = images[getRandomIndex(images)];
   posterTitle.innerText = titles[getRandomIndex(titles)];
   posterQuote.innerText = quotes[getRandomIndex(quotes)];
 }
 
+function updatePoster() {
+  const imageURL = posterImageURL.value
+  const title = motivationalTitle.value
+  const quote = motivationalQuote.value
 
+  posterImg.src = imageURL
+  posterTitle.innerText = title
+  posterQuote.innerText = quote
 
+  images.push(imageURL) // storing images on global, because its cooler, and i want to see posters i make again
+  titles.push(title)
+  quotes.push(quote)
+
+  currentPoster = createPoster(imageURL, title, quote) // sets up current poster
+}
+
+function savePoster() {
+  if (!currentPoster) {
+    return
+  }
+  if (savedPosters.find(poster === currentPoster.id)) {
+    return
+  }
+savedPosters.push(currentPoster)
+}
