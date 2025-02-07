@@ -116,8 +116,9 @@ let makePosterBtn = document.querySelector('.make-poster')
 let posterImageURL = document.querySelector('#poster-image-url')
 let motivationalTitle = document.querySelector('#poster-title')
 let motivationalQuote = document.querySelector('#poster-quote')
-let savePostersBtn = document.querySelector('.save-poster')
-let displaySavedPosters = document.querySelector(".saved-posters-grid")
+let savedPosterBtn = document.querySelector('.save-poster')
+let savedPostersGrid = document.querySelector(".saved-posters-grid")
+let backToMainBtn = document.querySelector(".back-to-main")
 
 
 // event listeners go here 👇
@@ -150,13 +151,17 @@ makePosterBtn.addEventListener('click', function(event) {
   updatePoster()
 })
 
-savePostersBtn.addEventListener('click', function(event) {
-  event.preventDefault();
-  if (!currentPoster) {
-    updatePoster();
-  }
-  savePoster();
-});
+savedPosterBtn.addEventListener('click', function() {
+  savePoster()
+  savedPostersSection.classList.remove('hidden')
+  mainPosterSection.classList.add('hidden')
+})
+
+backToMainBtn.addEventListener('click', function() {
+  savedPostersSection.classList.add('hidden')
+  mainPosterSection.classList.remove('hidden')
+  showRandomPoster()
+})
 
 
 
@@ -198,11 +203,28 @@ function updatePoster() {
 }
 
 function savePoster() {
-  if (!currentPoster) {
-    return
+  var newPoster = createPoster(posterImg.src, posterTitle.innerText, posterQuote.innerText);
+  if (!savedPosters.some(poster => 
+    poster.imageURL === newPoster.imageURL &&
+    poster.title === newPoster.title &&
+    poster.quote === newPoster.quote)) {
   }
-  if (savedPosters.find(poster === currentPoster.id)) {
-    return
-  }
-savedPosters.push(currentPoster)
+  savedPosters.push(newPoster)
+  displaySavedPosters()
 }
+
+function displaySavedPosters() {
+  savedPostersGrid.innerHTML = ""  // Clear previous elements and is most useful for when im updating the saved posters grid
+
+  savedPosters.forEach(poster => {
+    let miniPoster = document.createElement("div")
+    miniPoster.classList.add("mini-poster")
+
+    miniPoster.innerHTML = `<img src="${poster.imageURL}" 
+    alt="Saved Poster"><h2>${poster.title}</h2><h4>${poster.quote}</h4>`
+
+    savedPostersGrid.appendChild(miniPoster)
+  })
+}
+
+
