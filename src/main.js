@@ -99,7 +99,131 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
+let unmotivationalPosters = [
+  {
+    name: "FAILURE",
+    description: "Why bother trying? It's probably not worth it.",
+    price: 68.00,
+    year: 2019,
+    vintage: true,
+    img_url: "./assets/failure.jpg",
+  },
+  {
+    name: "MEDIOCRITY",
+    description: "Dreams are just that—dreams.",
+    price: 127.00,
+    year: 2021,
+    vintage: false,
+    img_url: "./assets/mediocrity.jpg",
+  },
+  {
+    name: "REGRET",
+    description: "Hard work rarely pays off.",
+    price: 89.00,
+    year: 2018,
+    vintage: true,
+    img_url:  "./assets/regret.jpg",
+  },
+  {
+    name: "FUTILITY",
+    description: "You're not good enough.",
+    price: 150.00,
+    year: 2016,
+    vintage: false,
+    img_url:  "./assets/futility.jpg",
+  },
+  {
+    name: "DEFEAT",
+    description: "It's too late to start now.",
+    price: 35.00,
+    year: 2023,
+    vintage: false,
+    img_url:  "./assets/defeat.jpg",
+  },
+  {
+    name: "HOPELESSNESS",
+    description: "Stay in your comfort zone; it's safer.",
+    price: 112.00,
+    year: 2020,
+    vintage: true,
+    img_url: "./assets/hopelessness.jpg",
+  },
+  {
+    name: "LAZINESS",
+    description: "You can't change anything.",
+    price: 25.00,
+    year: 2022,
+    vintage: false,
+    img_url: "./assets/laziness.jpg",
+  },
+  {
+    name: "PROCRASTINATION",
+    description: "Better to avoid failure by not trying at all.",
+    price: 48.00,
+    year: 2017,
+    vintage: true,
+    img_url: "./assets/procrastination.jpg",
+  },
+  {
+    name: "DESPAIR",
+    description: "Let someone else do it; you’ll just mess it up.",
+    price: 73.00,
+    year: 2015,
+    vintage: false,
+    img_url: "./assets/despair.jpg",
+  },
+  {
+    name: "NEGLECT",
+    description: "Happiness is overrated.",
+    price: 160.00,
+    year: 2019,
+    vintage: true,
+    img_url: "./assets/neglect.jpg",
+  },
+  {
+    name: "FEAR",
+    description: "Giving up is always an option.",
+    price: 91.00,
+    year: 2014,
+    vintage: false,
+    img_url: "./assets/fear.jpg",
+  },
+  {
+    name: "APATHY",
+    description: "No one cares about your effort.",
+    price: 110.00,
+    year: 2016,
+    vintage: true,
+    img_url: "./assets/apathy.jpg",
+  },
+  {
+    name: "MISERY",
+    description: "Why take risks when you can stay stagnant?",
+    price: 55.00,
+    year: 2021,
+    vintage: false,
+    img_url: "./assets/misery.jpg",
+  },
+  {
+    name: "BLAME",
+    description: "Expect disappointment and you'll never be disappointed.",
+    price: 39.00,
+    year: 2017,
+    vintage: true,
+    img_url: "./assets/blame.jpg",
+  },
+  {
+    name: "DOUBT",
+    description: "Success is for other people, not you.",
+    price: 140.00,
+    year: 2020,
+    vintage: false,
+    img_url: "./assets/doubt.jpg",
+  }
+];
+
 var savedPosters = [];
+
 var currentPoster;
 
 let posterImg = document.querySelector('.poster-img')
@@ -119,6 +243,10 @@ let motivationalQuote = document.querySelector('#poster-quote')
 let savedPosterBtn = document.querySelector('.save-poster')
 let savedPostersGrid = document.querySelector(".saved-posters-grid")
 let backToMainBtn = document.querySelector(".back-to-main")
+let unmotivationalPostersBtn = document.querySelector(".show-unmotivational-posters")
+let unmotivationalGrid = document.querySelector(".saved-unmotivational-grid")
+let unmotivationalPostersSection = document.querySelector(".saved-unmotivational-posters")
+let unmotivationalBackBtn = document.querySelector(".back-to-main-posters")
 
 
 // event listeners go here 👇
@@ -163,6 +291,18 @@ backToMainBtn.addEventListener('click', function() {
   showRandomPoster()
 })
 
+unmotivationalPostersBtn.addEventListener('click', function() {
+  mainPosterSection.classList.add('hidden')
+  unmotivationalPostersSection.classList.remove('hidden')
+  displayUnmotivationalPosters()
+})
+
+unmotivationalBackBtn.addEventListener('click', function() {
+  unmotivationalPostersSection.classList.add('hidden')
+  mainPosterSection.classList.remove('hidden')
+})
+
+unmotivationalGrid.addEventListener('dblclick', removeUnmotivationalPoster);
 
 
 // functions and event handlers go here 👇
@@ -195,7 +335,7 @@ function updatePoster() {
   posterTitle.innerText = title
   posterQuote.innerText = quote
 
-  images.push(imageURL) // storing images on global, because its cooler, and i want to see posters i make again
+  images.push(imageURL) // storing images global, because its cooler, and i want to see posters i make again
   titles.push(title)
   quotes.push(quote)
 
@@ -203,7 +343,7 @@ function updatePoster() {
 }
 
 function savePoster() {
-  var newPoster = createPoster(posterImg.src, posterTitle.innerText, posterQuote.innerText);
+  let newPoster = createPoster(posterImg.src, posterTitle.innerText, posterQuote.innerText);
   if (!savedPosters.some(poster => 
     poster.imageURL === newPoster.imageURL &&
     poster.title === newPoster.title &&
@@ -227,4 +367,33 @@ function displaySavedPosters() {
   })
 }
 
+function displayUnmotivationalPosters() {
+  unmotivationalGrid.innerHTML = ""
+  
+  unmotivationalPosters.forEach(poster => {
+    let miniUnPoster = document.createElement("div")
+    miniUnPoster.classList.add("mini-Unposter")
+
+    miniUnPoster.innerHTML = `<img src="${poster.img_url}" 
+    alt="Unmotivational Poster"><h2>${poster.name}</h2><h4>${poster.description}</h4>`
+
+    unmotivationalGrid.appendChild(miniUnPoster)
+  })
+}
+
+// function needs to be able to appendChild element from the dom. If i remember right this will also move to another div
+
+function removeUnmotivationalPoster(event) {
+  let clickedPoster = event.target.closest(".mini-Unposter")
+  
+  if (!clickedPoster) return
+
+  const title = clickedPoster.querySelector("h2").innerText
+  let posterIndex = unmotivationalPosters.findIndex(poster => poster.name === title)
+
+  if (posterIndex !== -1) {
+    unmotivationalPosters.splice(posterIndex, 1)  // Removes element in array at index position
+    clickedPoster.remove()  
+  }    
+}
 
