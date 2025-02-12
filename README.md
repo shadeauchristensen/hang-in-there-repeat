@@ -1,46 +1,134 @@
-# Hang In There
+# Hang in There
 
-A boilerplate repo. 
 
-## Set Up
+## Preview of the App 
 
-1. Fork this repository
-2. Clone down your new, forked repo
-3. `cd` into the repository
-4. Open it in your text editor
-5. Add the instructors as collaborators on the repository
+<p align="center">
+    <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmJuOHFpZWZwdG44ZndhZ2NwMjFoNGQweGh6Zm94d2FyN3p4NGQ0ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/anteazMpOvnfARJsP2/giphy.gif" width="800">
+</p>
 
-Project spec & rubric can be found [here](https://curriculum.turing.edu/module2/projects/hang_in_there/)
+---
 
-To view your project:
+<a id="abstract"></a>
+## Abstract  
+<details>
+  <summary>Click to Expand</summary>
 
-1. In your terminal, navigate to your project repo
-2. Run the command `open index.html`
+| Description |
+|------------|
+| 🟨  **Looking for motivation or a reality check?** This is the project for you! |
+| 🛠  **Simple navigation & customization** lets you create your own posters. |
+
+</details>
+
+---
+
+<a id="context"></a>
+
+## Context  
+<details>
+  <summary>Click to Expand</summary>
+
+<div align="center">
+
+  | ⬛ **Experience** | 🟨 **Insights** |
+  |------------|------------|
+  | 🟪 Worked on this project for a few hours each day | 🟪 Picking it back up was easier due to past experience |
+  | 🟪 Previously completed this project | 🟪 Reinforced my understanding of JavaScript and DOM manipulation |
+  | 🟪 Focused on refining my approach | 🟪 Improved debugging skills and efficiency in structuring the code |
+  | 🟪 Used prior knowledge to accelerate progress | 🟪 Recognized patterns from past projects and applied them here |
+  | 🟪 Excited to build on this further | 🟪 Looking forward to implementing more complex functionality |
+</div>
+
+</details>
+
+---
+
+<a id="learning-goals"></a>
+
+## Learning Goals  
+<details>
+  <summary>Click to Expand</summary>
+
+  <div align="center">
+
+  | 🏁 Goal | 🏁 Focus Area |
+  |------------|------------|
+  |  Strengthen JavaScript fundamentals |  Work with functions, loops, and arrays effectively |
+  |  Enhance DOM manipulation skills |  Learn how to dynamically update and modify elements on the page |
+  |  Improve event handling |  Gain experience with event listeners and user interactions |
+  |  Refine problem-solving abilities |  Debug and troubleshoot JavaScript errors more efficiently |
+  |  Gain better understanding of Git workflow |  Practice commits, branching, and collaboration on GitHub |
+
+  </div>
+
+</details>
+
+---
+
+<a id="wins-challenges"></a>
+
+## Wins & Challenges  
+<details>
+  <summary>Click to Expand</summary>
+
+<div align="center">
+
+  | 🏆 Wins | 🪨 Challenges |
+  |------------|------------|
+  | 🏆 Successfully refactored code for better readability | 🪨 Debugging issues with hidden elements not displaying correctly |
+  | 🏆 Improved understanding of event listeners and DOM manipulation | 🪨 Ensuring proper state management when switching between poster views |
+  | 🏆 Implemented dynamic poster creation with user input | 🪨 Managing CSS styles to make the posters look uniform across different screen sizes |
+  | 🏆 Optimized saved posters functionality to prevent duplicates | 🪨 Handling unexpected user inputs that might break poster generation |
+  | 🏆 Strengthened my ability to troubleshoot issues independently | 🪨 Balancing efficiency with keeping code easy to read and maintain |
+
+</div>
+
+</details>
+
+---
+
+<a id="installation-instructions"></a>
+## Installation Instructions  
+<details>
+  <summary>Click to Expand</summary>
+
+**Step 1:** Fork and clone the repository  
+**Step 2:** Navigate to the project folder  
+**Step 3:** Open `index.html` in a browser  
+**Step 4:** Start customizing posters!  
+
+Want to contribute? **Check out the issues tab on GitHub!**  
+🔗 [GitHub Issues](https://github.com/shadeauchristensen/hang-in-there-repeat/issues)
+
+</details>
+
+---
+
+## Table of Contents  
+<div align="center">
+
+| ⬛ **My journey for this project** | 🟨 **Check it out for yourself!** |
+|------------|------------|
+| [Abstract](#abstract) | [Preview of the App](#preview-of-the-app) |
+| [Context](#context) | [Learning Goals](#learning-goals) |
+| [Wins + Challenges](#wins--challenges) | [Installation Instructions](#installation-instructions) |
+
+</div>
+
+---
+
+<p align="center">
+  Follow my future projects! 🚀  
+
+
+<p align="center">
   
-______________________________________________________  
-# README Template  
-Before turning this project in, erase this line and everything above it and fill in the info below.  
-______________________________________________________  
+  <a href="https://github.com/shadeauchristensen">
+    <img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+  </a>
 
-# Hang in There  
-
-### Abstract:
-[//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
-
-### Installation Instructions:
-[//]: <> (What steps does a person have to take to get your app cloned down and running?)
-
-### Preview of App:
-[//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off. gifs preferred!)
-
-### Context:
-[//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
-
-### Contributors:
-[//]: <> (Who worked on this application? Link to your GitHub. Consider also providing LinkedIn link)
-
-### Learning Goals:
-[//]: <> (What were the learning goals of this project? What tech did you work with?)
-
-### Wins + Challenges:
-[//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+  <a href="https://www.linkedin.com/in/shadeauchristensen">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+  </a>
+</p>
