@@ -160,7 +160,7 @@ justify-content: center;
 }
 
 .mini-Unposter {
-  margin: inherit;
+  margin: .5%;
   background: grey;
   color: white;
   height: 340px;
@@ -196,3 +196,5 @@ justify-content: center;
   margin-top: 1.2%;
   padding: .5%;
 }
+
+/* ------------------------------- */
