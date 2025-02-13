@@ -303,6 +303,9 @@ unmotivationalBackBtn.addEventListener('click', function() {
 })
 
 unmotivationalGrid.addEventListener('dblclick', removeUnmotivationalPoster);
+posterImg.addEventListener("click", showRandomImage)
+posterTitle.addEventListener("click", showRandomTitle)
+posterQuote.addEventListener("click", showRandomQuote)
 
 
 // functions and event handlers go here 👇
@@ -339,18 +342,27 @@ function updatePoster() {
   titles.push(title)
   quotes.push(quote)
 
-  currentPoster = createPoster(imageURL, title, quote) // sets up current poster
+  currentPoster = createPoster(imageURL, title, quote) // set up current poster
 }
 
 function savePoster() {
   let newPoster = createPoster(posterImg.src, posterTitle.innerText, posterQuote.innerText);
-  if (!savedPosters.some(poster => 
+
+  // Check if a poster with the same image, title, and quote already exists 
+  let duplicatePoster = savedPosters.some(poster => 
     poster.imageURL === newPoster.imageURL &&
     poster.title === newPoster.title &&
-    poster.quote === newPoster.quote)) {
+    poster.quote === newPoster.quote
+  );
+
+  if (!duplicatePoster) {
+    savedPosters.push(newPoster)
+    displaySavedPosters()
+  } 
+  else {
+    console.log("Duplicate poster detected!")
+    // displaySavedPosters()
   }
-  savedPosters.push(newPoster)
-  displaySavedPosters()
 }
 
 function displaySavedPosters() {
@@ -397,3 +409,14 @@ function removeUnmotivationalPoster(event) {
   }    
 }
 
+function showRandomImage() {
+  posterImg.src = images[getRandomIndex(images)]
+}
+
+function showRandomTitle() {
+  posterTitle.innerText = titles[getRandomIndex(titles)]
+}
+
+function showRandomQuote() {
+  posterQuote.innerText = quotes[getRandomIndex(quotes)]
+}
