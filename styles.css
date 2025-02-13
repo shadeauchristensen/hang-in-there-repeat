@@ -64,9 +64,10 @@ button:hover {
 .poster-title {
   font-size: 60px;
   font-weight: normal;
-  letter-spacing: 20px;
+  letter-spacing: 15px;
   margin-bottom: 10px;
   text-transform: uppercase;
+  max-width: 90%;  /* added for my screen size  */
 }
 
 .main-poster button {
@@ -157,6 +158,7 @@ justify-content: center;
   flex-direction: row; 
   margin: auto; 
   margin-top: 1%;
+  justify-content: center;
 }
 
 .mini-Unposter {
@@ -198,3 +200,15 @@ justify-content: center;
 }
 
 /* ------------------------------- */
+
+.poster-title:active {
+  color: greenyellow;
+  transition: color 0.0s ease-in-out;
+}
+
+.poster-quote:active {
+  color: greenyellow;
+  transition: color 0.2s ease-in-out;
+}
+
+/* cant get poster img: idk, running out of time now
